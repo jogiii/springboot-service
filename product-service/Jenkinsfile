@@ -2,7 +2,6 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            tool name: 'gradle-7.4.2', type: 'gradle'
             steps {
                 sh 'gradle assemble'
             }
