@@ -1,0 +1,66 @@
+#APP SPECIFIC CUSTOM PROPERTIES
+api:
+  info:
+    title: Product Service API
+    description: API to fetch product details with reviews
+    version: 1.0.0
+    terms-of-service: http://example.com/terms/
+    contact:
+      name: Product Service API Team
+      email: apiteam@example.com
+      url: http://example.com/team
+    license:
+      name: Apache 2.0
+      url: http://www.apache.org/licenses/LICENSE-2.0.html
+  logging:
+    enable: true
+    url-patterns: "/products/*"
+    requestIdParamName: CORRELATION_ID
+  security:
+    enabled: false
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /   # Redirect localhost:8080 to swagger-ui.html
+
+server:
+  port: 8081
+
+logging:
+  level:
+    root: INFO
+    com.example.product.client: DEBUG
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%8.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %X{CORRELATION_ID} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 160000000
+        readTimeout: 160000000
+        loggerLevel: FULL
+  compression:
+    response:
+      enabled: true
+      useGzipDecoder: true
+
+
+client:
+  product:
+    baseUrl: https://www.adidas.co.uk
+  review:
+    baseUrl: http://localhost:8082
+
+spring:
+  jackson:
+    date-format: "dd-MM-yyyy hh:mm:ss"
+    default-property-inclusion: use_defaults
+    serialization:
+      INDENT_OUTPUT: true
+      FAIL_ON_EMPTY_BEANS: false
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+      FAIL_ON_IGNORED_PROPERTIES: false

@@ -1,0 +1,6 @@
+rootProject.name = 'springboot-microservices'
+
+include 'product-service'
+include 'review-service'
+include 'common-library'
+

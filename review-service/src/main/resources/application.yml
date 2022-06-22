@@ -1,0 +1,52 @@
+#APP SPECIFIC CUSTOM PROPERTIES
+api:
+  info:
+    title: Review Service API
+    description: API to fetch review details for product
+    version: 1.0.0
+    terms-of-service: http://example.com/terms/
+    contact:
+      name: Review Service API Team
+      email: apiteam@example.com
+      url: http://example.com/team
+    license:
+      name: Apache 2.0
+      url: http://www.apache.org/licenses/LICENSE-2.0.html
+  logging:
+    enabled: true
+    url-patterns: "/review/*"
+  security:
+    enabled: true
+
+springdoc:
+  swagger-ui:
+    enabled: true
+    path: /   # Redirect localhost:8080 to swagger-ui.html
+
+server:
+  port: 8082
+logging:
+  level:
+    root: INFO
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%8.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %X{REQUEST_CORRELATION_ID} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
+spring:
+  jackson:
+    serialization:
+      INDENT_OUTPUT: false
+      FAIL_ON_EMPTY_BEANS: false
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  # Enabling H2 Console
+  h2.console.enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    generate-ddl: true
+    show-sql: true
+
+jwt:
+  secret-key: mySecretKey

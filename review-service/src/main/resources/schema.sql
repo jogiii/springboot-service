@@ -1,0 +1,1 @@
+create table review (product_id varchar(255) not null, average_review_score double, number_of_reviews bigint, primary key (product_id));

@@ -1,0 +1,5 @@
+client:
+  product:
+    baseUrl: https://www.adidas.co.uk
+  review:
+    baseUrl: http://review-service:8082
