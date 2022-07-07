@@ -56,12 +56,12 @@ dockerRun {
     ports '8081:8081'
     env 'SPRING_PROFILES_ACTIVE': 'dev'
     daemonize true
-    clean false
+    clean true
 }
 dockerRun {
     name "Mongo-container"
     image mongoImageName
     ports '27017:27017'
     daemonize true
-    clean false
+    clean true
 }
