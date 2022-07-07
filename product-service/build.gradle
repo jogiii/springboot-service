@@ -43,6 +43,7 @@ test {
 }
 
 String imageName = "${project.group}/${project.name}"
+String mongoImageName = "mongo:latest";
 docker {
     dockerfile project.file('Dockerfile')
     name imageName
