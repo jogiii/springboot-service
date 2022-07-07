@@ -1,7 +1,7 @@
 pipeline {
     agent any
-    tools{
-        gradle 'gradle 7.0.2'
+    triggers {
+        pollSCM '* * * * *'
     }
     stages {
         stage('Build') {
@@ -9,12 +9,12 @@ pipeline {
                 sh 'gradle assemble'
             }
         }
-        stage('Test') {
+         stage('Test') {
             steps {
                 sh 'gradle test'
             }
         }
-        stage('Build Docker image') {
+        stage('Build Docker Image') {
             steps {
                 sh 'gradle docker'
             }
