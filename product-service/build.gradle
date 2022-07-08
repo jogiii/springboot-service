@@ -61,7 +61,7 @@ dockerRun {
 dockerRun {
     name "Mongo-container"
     image mongoImageName
-    ports '27017:27017'
+    ports '27019:27019'
     daemonize true
     clean true
 }
