@@ -25,7 +25,7 @@ public class ProductFeignClientTest {
     @Autowired
     ProductFeignClient productFeignClient;
 
-    //@Test
+    @Test
     public void getProductById_whenValidClient_returnValidResponse() throws Exception {
         // Using WireMock to mock client API:
         stubFor(get(urlEqualTo("/api/products/BB5476"))
