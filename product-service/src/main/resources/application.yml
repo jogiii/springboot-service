@@ -64,10 +64,3 @@ spring:
     deserialization:
       FAIL_ON_UNKNOWN_PROPERTIES: false
       FAIL_ON_IGNORED_PROPERTIES: false
-  data:
-    mongodb:
-      host: localhost
-      port: 27019
-      database : library
-
-
